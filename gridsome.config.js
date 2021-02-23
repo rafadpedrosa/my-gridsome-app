@@ -23,20 +23,29 @@ module.exports = {
         {
             use: '@gridsome/source-filesystem',
             options: {
-                path: 'posts/**/*.md',
-                typeName: 'Post',
-                remark: {
-                    plugins: [
-                        // ...local plugins
-                    ]
-                }
+                path: 'collections/posts/**/*.json',
+                typeName: 'posts'
+            }
+        },
+        {
+            use: '@gridsome/source-filesystem',
+            options: {
+                path: 'collections/blogs/**/*.json',
+                typeName: 'blogs'
+            }
+        },
+        {
+            use: '@gridsome/source-filesystem',
+            options: {
+                path: 'collections/techs/**/*.json',
+                typeName: 'techs'
             }
         },
         {
             use: `gridsome-plugin-netlify-cms`,
             options: {
                 publicPath: `/admin`,
-                modulePath: `src/admin/index.js`
+                modulePath: `src/admin/index.js`,
             }
         },
     ]
