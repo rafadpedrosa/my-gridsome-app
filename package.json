@@ -13,5 +13,8 @@
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "netlify-cms": "^2.10.93"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.859.0"
   }
 }
