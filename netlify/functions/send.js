@@ -113,7 +113,7 @@ function requestResolver(event, context, callback) {
     if (!params["email"]) errs.push("no email")
     if (!params["subject"]) errs.push("no subject")
     if (!params["body"]) errs.push("no body")
-    if (errs.length > 0) return redir(callback, { errors: errs.join(","), emailSent: 0 })
+    if (errs.length > 0) return redir(callback, 400, { errors: errs.join(","), emailSent: 0 })
 
     sendEmail(
         params["name"]
