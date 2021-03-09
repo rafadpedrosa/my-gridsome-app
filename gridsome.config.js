@@ -6,7 +6,7 @@
 
 module.exports = {
     siteName: 'rafadpedrosa',
-    pathPrefix: '/my-app',
+    pathPrefix: '/',
     titleTemplate: '',
     transformers: {
         remark: {
