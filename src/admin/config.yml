@@ -1,14 +1,27 @@
 backend:
   name: github
-  repo: rafadpedrosa/repo_name
+  repo: rafadpedrosa/my-gridsome-app
+  publish_mode: editorial_workflow
+  branch: add_more_collections # Branch to update (optional; defaults to master)
 
 media_folder: "static/uploads"
-public_folder: "/uploads"
+## public_folder: "/uploads"
 
 collections:
+  - name: "techs"
+    label: "Techs"
+    format: "json"
+    extension: "json"
+    folder: "collections/techs"
+    create: true
+    slug: "{{slug}}"
+    fields: # The fields for each document, usually in front matter
+      - { label: "Name", name: "name", widget: "markdown" }
   - name: "posts"
     label: "Posts"
-    folder: "posts"
+    folder: "collections/posts"
+    format: "json"
+    extension: "json"
     create: true
     slug: "{{slug}}"
     fields:
@@ -16,3 +29,29 @@ collections:
       - {label: "Excerpt", name: "excerpt", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "date"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Comment"
+        name: "comment"
+        widget: "list"
+        fields:
+          - { label: "description", name: "description", widget: "markdown" }
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blogs" # Used in the UI
+    format: "json"
+    extension: "json"
+    folder: "collections/blogs" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{monthposts}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "techs"
+        name: "techs"
+        widget: "relation"
+        collection: "techs"
+        search_fields: [ "name" ]
+        value_field: "name"
+        display_fields: [ "name" ]
