@@ -24,4 +24,4 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Intention to finish Date", name: "finish_date", widget: "date"}
+      - {label: "Intention to finish Date", name: "finish_date", widget: "date", required: false, defaul: ""}
