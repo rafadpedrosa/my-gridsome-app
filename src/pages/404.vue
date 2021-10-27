@@ -8,7 +8,7 @@
         <div class="out rounded">
           <div class="in rounded">
             <div class="in-body pt-3">
-              <b>Working in Progress</b>
+              <b>Work in Progress</b>
               <p>...</p>
             </div>
           </div>
