@@ -1,7 +1,0 @@
-[dev]
-  command = "gridsome develop"
-
-[build]
-  command = "gridsome build"
-  publish = "dist"
-  functions = "netlify/functions"
