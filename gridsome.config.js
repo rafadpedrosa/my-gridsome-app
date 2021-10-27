@@ -6,6 +6,9 @@
 
 module.exports = {
     siteName: 'rafadpedrosa',
+    siteUrl: 'rafadpedrosa',
+    pathPrefix: '/',
+    titleTemplate: '',
     transformers: {
         remark: {
             externalLinksTarget: '_blank',
